@@ -53,7 +53,7 @@ namespace llc {
     }
 
     int App::LoadData(const char *fileName) {
-        m_json.load(fileName);
+        m_json.Load(fileName);
 
         if(m_json.m_content.contains("LanguageSettings"))
         {
@@ -108,8 +108,8 @@ namespace llc {
                     std::cout << "\tChoose languageId: ";
                     std::cin >> languageId;
                     m_json.m_content["LanguageSettings"]["language"] = m_languages[languageId];
-                    m_json.save();
-                    m_json.load(CONFIG_FILE);
+                    m_json.Save();
+                    m_json.Load(CONFIG_FILE);
                     LoadData(CONFIG_FILE);
                     std::cout << "Language has set to " << m_languages[languageId] << "\n";
                     std::cout << "Press Enter to continue...";

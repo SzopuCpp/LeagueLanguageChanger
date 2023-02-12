@@ -15,9 +15,9 @@ namespace llc {
 
         JsonManager(const std::string _file);
 
-        void save();
+        void Save();
 
-        void load(std::string _file);
+        void Load(std::string _file);
 
     private:
         std::string m_fileName;

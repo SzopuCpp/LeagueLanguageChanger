@@ -17,6 +17,7 @@ namespace llc {
 
        void Start();
 
+    private:
         enum class Color {
             black = 0,
             blue = 1,
@@ -35,7 +36,10 @@ namespace llc {
             lightYellow = 14,
             white = 15
         };
-
+        HANDLE m_console;
+        App::Color RandomColor() const;
+        void SetColor(Color color);
+        
         enum class MenuOptions
         {
             runGame,
@@ -43,9 +47,31 @@ namespace llc {
             versionInfo,
             exit
         };
+        void PrintTitle();
+        void Menu();
 
-    private:
-        HANDLE m_console;
+        JsonManager m_json;
+        DataStruct m_data;
+        int LoadData(const char *fileName);
+        std::map<int, std::string> m_languages {
+                {0, "cs_CZ"},
+                {1, "de_DE"},
+                {2, "en_US"},
+                {3, "en_GB"},
+                {4, "en_AU"},
+                {5, "es_ES"},
+                {6, "es_MX"},
+                {7, "fr_FR"},
+                {8, "t_ITf"},
+                {9, "hu_HU"},
+                { 10, "pl_PL" },
+                { 11, "pt_BR" },
+                { 12, "ro_RO" },
+                { 13, "tr_TR" },
+                { 14, "el_GR" },
+                { 15, "ru_RU" },
+                { 16, "ja_JP" }
+        };
         std::vector<std::string> m_title = {
             R"( ___        ________   ___)",
             R"(|\  \      |\   __  \ |\  \)",
@@ -70,35 +96,6 @@ namespace llc {
             R"(      \ \  \____ \ \  \ \  \\ \  \ \  \\ \  \\ \  \\ \  \|\  \\ \  \_|\ \\ \  \\  \| )",
             R"(       \ \_______\\ \__\ \__\\ \__\ \__\\ \__\\ \__\\ \_______\\ \_______\\ \__\\ _\ )",
             R"(        \|_______| \|__|\|__| \|__|\|__| \|__| \|__| \|_______| \|_______| \|__|\|__|)",
-        };
-        JsonManager m_json;
-        DataStruct m_data;
-
-        App::Color RandomColor() const;
-        void SetColor(Color color);
-
-        void PrintTitle();
-        void Menu();
-
-        int LoadData(const char *fileName);
-        std::map<int, std::string> m_languages {
-                {0, "cs_CZ"},
-                {1, "de_DE"},
-                {2, "en_US"},
-                {3, "en_GB"},
-                {4, "en_AU"},
-                {5, "es_ES"},
-                {6, "es_MX"},
-                {7, "fr_FR"},
-                {8, "t_ITf"},
-                {9, "hu_HU"},
-                { 10, "pl_PL" },
-                { 11, "pt_BR" },
-                { 12, "ro_RO" },
-                { 13, "tr_TR" },
-                { 14, "el_GR" },
-                { 15, "ru_RU" },
-                { 16, "ja_JP" }
         };
     };
 }
