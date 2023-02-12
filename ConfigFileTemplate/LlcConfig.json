@@ -1,0 +1,8 @@
+{
+   "LanguageSettings": {
+      "language": "en_US"
+   },
+   "Paths": {
+      "LeagueClient": "path\\to\\your\\LeagueClient.exe"
+   }
+}
