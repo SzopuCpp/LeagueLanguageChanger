@@ -5,7 +5,7 @@
 Download [nlohmann-json](https://github.com/nlohmann/json) by [vcpkg](https://vcpkg.io/en/index.html)
 
 ## How to use
-Create json file named `LlcConfig.json`:
+Create json file named `LlcConfig.json` in `.exe` file directory:
 ```{
    "LanguageSettings": {
       "language": "en_US"
